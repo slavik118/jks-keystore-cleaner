@@ -104,7 +104,7 @@ public class KeystoreManager {
                     xCert.checkValidity();
                 } catch (CertificateExpiredException | CertificateNotYetValidException e) {
                    // Remove expired X.509 certificate from the store
-                	 store.deleteEntry(alias);
+                    store.deleteEntry(alias);
                     log.log(Level.INFO, "Removed certificate {0} (expired {1}).", new Object[]{alias, expiryDate});
                     removedKeys++;
                 }

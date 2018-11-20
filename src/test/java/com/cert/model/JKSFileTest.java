@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.logging.Level;
 
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
 import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.After;
@@ -71,6 +72,17 @@ public class JKSFileTest {
 	@Test
 	public void testWhenCallingToStringOfCharArray_ThenValuesNotEqual() {
 		assertThat(jksFile.getPasswordArray().toString(), is(not("password")));
+	}
+	
+	/**
+	 * Comparing two objects.
+   	*/
+	@Test
+	public void testTwoJKSFileObjects() {
+		final JKSFile jksFile1 = createJKSFile();
+		final JKSFile jksFile2 = createJKSFile();
+		
+		assertEquals(jksFile1, jksFile2);
 	}
 
 
